@@ -56,12 +56,7 @@ public class Ammo : MonoBehaviour
             Debug.LogError("Unrecognized gun type passed:" + tag);
         }
         tagToAmmo[tag]--;
-    }
-
-        // Start is called before the first frame update
-        void Start()
-    {
-        
+        gameUI.SetAmmoText(tagToAmmo[tag]);
     }
 
     // Update is called once per frame
