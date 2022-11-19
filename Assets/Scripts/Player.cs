@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Game game;
+    public AudioClip playerDead;
 
     public int health;
     public int armor;
     public GameUI gameUI;
     private GunEquiper gunEquipper;
     private Ammo ammo;
-
-    // Start is called before the first frame update
     
     void Start()
     {
@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Gameover");
+            GetComponent<AudioSource>().PlayOneShot(playerDead);
+            game.GameOver();
         }
 
     }
